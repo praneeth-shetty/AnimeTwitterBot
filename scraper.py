@@ -3,8 +3,8 @@ import requests
 import csv
 
 
-sources = ['this-season', 'next-season']
-for source in sources:
+# sources = ['this-season', 'next-season']
+for source in ('next-season', 'this-season'):
     source = requests.get('https://anilist.co/search/anime/' + source).text
     soup = BeautifulSoup(source, 'lxml')
 
