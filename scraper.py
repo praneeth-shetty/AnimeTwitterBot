@@ -1,15 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
-import csv
-
-
-# sources = ['this-season', 'next-season']
-for source in ('next-season', 'this-season'):
-    source = requests.get('https://anilist.co/search/anime/' + source).text
-    soup = BeautifulSoup(source, 'lxml')
+from random import choice
 
 
 def anime_list():
+    sources = ['this-season', 'next-season']
+    value = choice(sources)
+    source = requests.get('https://anilist.co/search/anime/' + value).text
+    soup = BeautifulSoup(source, 'lxml')
     file_list = []
     post_list = []
     post_url_list = []
